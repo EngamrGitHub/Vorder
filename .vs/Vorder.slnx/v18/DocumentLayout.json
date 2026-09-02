@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "F:\\Vorder\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\Vorder\\VorderShops\\Vorder.Infrastructure\\Vorder.Infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:VorderShops\\Vorder.Infrastructure\\Vorder.Infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\Vorder\\VorderShops\\Vorder.Domain\\Vorder.Domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:VorderShops\\Vorder.Domain\\Vorder.Domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\Vorder\\VorderShops\\Vorder.WebAPI\\Vorder.WebAPI.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:VorderShops\\Vorder.WebAPI\\Vorder.WebAPI.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\Vorder\\VorderShops\\Vorder.Application\\Vorder.Application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:VorderShops\\Vorder.Application\\Vorder.Application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Vorder.Infrastructure.csproj",
+              "DocumentMoniker": "F:\\Vorder\\VorderShops\\Vorder.Infrastructure\\Vorder.Infrastructure.csproj",
+              "RelativeDocumentMoniker": "VorderShops\\Vorder.Infrastructure\\Vorder.Infrastructure.csproj",
+              "ToolTip": "F:\\Vorder\\VorderShops\\Vorder.Infrastructure\\Vorder.Infrastructure.csproj",
+              "RelativeToolTip": "VorderShops\\Vorder.Infrastructure\\Vorder.Infrastructure.csproj",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAQwBoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-08-31T18:48:47.316Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Vorder.Domain.csproj",
+              "DocumentMoniker": "F:\\Vorder\\VorderShops\\Vorder.Domain\\Vorder.Domain.csproj",
+              "RelativeDocumentMoniker": "VorderShops\\Vorder.Domain\\Vorder.Domain.csproj",
+              "ToolTip": "F:\\Vorder\\VorderShops\\Vorder.Domain\\Vorder.Domain.csproj",
+              "RelativeToolTip": "VorderShops\\Vorder.Domain\\Vorder.Domain.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-08-31T18:48:38.164Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Vorder.Application.csproj",
+              "DocumentMoniker": "F:\\Vorder\\VorderShops\\Vorder.Application\\Vorder.Application.csproj",
+              "RelativeDocumentMoniker": "VorderShops\\Vorder.Application\\Vorder.Application.csproj",
+              "ToolTip": "F:\\Vorder\\VorderShops\\Vorder.Application\\Vorder.Application.csproj",
+              "RelativeToolTip": "VorderShops\\Vorder.Application\\Vorder.Application.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-08-31T18:48:34.229Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Vorder.WebAPI.csproj",
+              "DocumentMoniker": "F:\\Vorder\\VorderShops\\Vorder.WebAPI\\Vorder.WebAPI.csproj",
+              "RelativeDocumentMoniker": "VorderShops\\Vorder.WebAPI\\Vorder.WebAPI.csproj",
+              "ToolTip": "F:\\Vorder\\VorderShops\\Vorder.WebAPI\\Vorder.WebAPI.csproj",
+              "RelativeToolTip": "VorderShops\\Vorder.WebAPI\\Vorder.WebAPI.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-08-31T18:48:26.187Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
