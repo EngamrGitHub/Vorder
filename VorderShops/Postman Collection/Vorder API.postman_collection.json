@@ -1,0 +1,623 @@
+{
+	"info": {
+		"_postman_id": "5565ad8a-07eb-4381-94ca-13d2daa97247",
+		"name": "Vorder API",
+		"description": "Complete API collection for Vorder Authentication and Shop endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39167974"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"fullName\": \"John Doe\",\n  \"email\": \"john.doe@example.com\",\n  \"phoneNumber\": \"01012345678\",\n  \"password\": \"Password123!\",\n  \"confirmPassword\": \"Password123!\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/Authentication/Register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Authentication",
+								"Register"
+							]
+						},
+						"description": "Register a new user account"
+					},
+					"response": []
+				},
+				{
+					"name": "Confirm Email",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userID\": \"3af5ca4c-b9f0-462f-7f15-08de0407f67d\",\r\n  \"confirmationToken\": \"CfDJ8GbHK8YyhPlClEKP/wkd+RYWhNGJXsz2yd7UjMctiaov1tvg2Xqe78K4LMYQjhG4In4wnqtrIduwp41dbwvWEw5BoftpqvQRwkmSlNl1Bd1K58gqnaWa6XyxxJcQYt38OFLiF8VxO2VLRMk7UzQpXO/xbxMii8vYdD4fz4JKE4udrgzdNMzS0VJfa1IvTo9zzIx+DRWsri1qQhsqqzIyg1Bj2zVWi9/azPHQhw0dsEDPyitbtkljHkUENbRM9ux3w==\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/Authentication/ConfirmEmail",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Authentication",
+								"ConfirmEmail"
+							]
+						},
+						"description": "Confirm user email address with token"
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"    var jsonData = pm.response.json();",
+									"    if (jsonData.data) {",
+									"        pm.collectionVariables.set(\"accessToken\", jsonData.data.token);",
+									"        pm.collectionVariables.set(\"refreshToken\", jsonData.data.refreshToken);",
+									"    }",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"john.doe@example.com\",\n  \"password\": \"Password123!\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/Authentication/Login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Authentication",
+								"Login"
+							]
+						},
+						"description": "Login with email and password"
+					},
+					"response": []
+				},
+				{
+					"name": "Google Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"    var jsonData = pm.response.json();",
+									"    if (jsonData.data) {",
+									"        pm.collectionVariables.set(\"accessToken\", jsonData.data.token);",
+									"        pm.collectionVariables.set(\"refreshToken\", jsonData.data.refreshToken);",
+									"    }",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\"YOUR_GOOGLE_ID_TOKEN\""
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/Authentication/GoogleLogin?token=YOUR_GOOGLE_ID_TOKEN",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Authentication",
+								"GoogleLogin"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "YOUR_GOOGLE_ID_TOKEN"
+								}
+							]
+						},
+						"description": "Login using Google OAuth token"
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"    var jsonData = pm.response.json();",
+									"    if (jsonData.data) {",
+									"        pm.collectionVariables.set(\"accessToken\", jsonData.data.token);",
+									"    }",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userID\": \"9f157bb9-4805-40f1-8bd8-08de04cfca44\",\r\n  \"refreshToken\": \"YOUR_REFRESH_TOKEN\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/Authentication/RefreshToken",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Authentication",
+								"RefreshToken"
+							]
+						},
+						"description": "Get new access token using refresh token"
+					},
+					"response": []
+				},
+				{
+					"name": "Forgot Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/Authentication/ForgotPassword?Email=john.doe@example.com",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Authentication",
+								"ForgotPassword"
+							],
+							"query": [
+								{
+									"key": "Email",
+									"value": "john.doe@example.com"
+								}
+							]
+						},
+						"description": "Request password reset token via email"
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"john.doe@example.com\",\r\n  \"resetToken\": \"YOUR_RESET_TOKEN\",\r\n  \"newPassword\": \"NewPassword123!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/Authentication/ResetPassword",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Authentication",
+								"ResetPassword"
+							]
+						},
+						"description": "Reset password using token"
+					},
+					"response": []
+				},
+				{
+					"name": "Resend Confirmation Email",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/Authentication/ResendConfirmationEmail?Email=john.doe@example.com",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Authentication",
+								"ResendConfirmationEmail"
+							],
+							"query": [
+								{
+									"key": "Email",
+									"value": "john.doe@example.com"
+								}
+							]
+						},
+						"description": "Resend email confirmation link"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Shop",
+			"item": [
+				{
+					"name": "Get Paginated Shops",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/Shop/GetPaginatedShops?PageNumber=1&PageSize=10",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Shop",
+								"GetPaginatedShops"
+							],
+							"query": [
+								{
+									"key": "PageNumber",
+									"value": "1",
+									"description": "Page number to retrieve"
+								},
+								{
+									"key": "PageSize",
+									"value": "10",
+									"description": "Number of items per page"
+								}
+							]
+						},
+						"description": "Retrieves a paginated list of shops. Requires Admin authorization (commented out in code)."
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Shops",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/Shop/GetShops",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Shop",
+								"GetShops"
+							]
+						},
+						"description": "Retrieves all shops in the system. Requires Admin authorization (commented out in code)."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Shop By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/Shop/GetShopByID?shopID={{shopId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Shop",
+								"GetShopByID"
+							],
+							"query": [
+								{
+									"key": "shopID",
+									"value": "{{shopId}}",
+									"description": "GUID of the shop to retrieve"
+								}
+							]
+						},
+						"description": "Retrieves a specific shop by ID. User must be the shop owner. Requires authentication."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Shop",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Name",
+									"value": "My Awesome Shop",
+									"type": "text"
+								},
+								{
+									"key": "Email",
+									"value": "shop@example.com",
+									"type": "text"
+								},
+								{
+									"key": "PhoneNumber",
+									"value": "+1234567890",
+									"type": "text"
+								},
+								{
+									"key": "Description",
+									"value": "A wonderful shop selling amazing products",
+									"type": "text"
+								},
+								{
+									"key": "Address",
+									"value": "123 Main Street, City, Country",
+									"type": "text"
+								},
+								{
+									"key": "Logo",
+									"value": "",
+									"description": "Shop logo image file",
+									"type": "file"
+								},
+								{
+									"key": "Favicon",
+									"value": "",
+									"description": "Shop favicon image file",
+									"type": "file"
+								},
+								{
+									"key": "Banner",
+									"value": "",
+									"description": "Shop banner image file",
+									"type": "file"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/Shop/CreateShop",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Shop",
+								"CreateShop"
+							]
+						},
+						"description": "Creates a new shop. Requires Shop Owner authentication. Returns 201 on success."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Shop",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Updated Shop Name\",\n  \"email\": \"updated@example.com\",\n  \"phoneNumber\": \"+1987654321\",\n  \"description\": \"Updated shop description\",\n  \"address\": \"456 New Street, City, Country\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/Shop/UpdateShop/{{shopId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Shop",
+								"UpdateShop",
+								"{{shopId}}"
+							]
+						},
+						"description": "Updates an existing shop. User must be the shop owner. Use form-data if updating images."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Shop (With Images)",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Name",
+									"value": "Updated Shop Name",
+									"type": "text"
+								},
+								{
+									"key": "Email",
+									"value": "updated@example.com",
+									"type": "text"
+								},
+								{
+									"key": "PhoneNumber",
+									"value": "+1987654321",
+									"type": "text"
+								},
+								{
+									"key": "Description",
+									"value": "Updated description",
+									"type": "text"
+								},
+								{
+									"key": "Logo",
+									"value": "",
+									"description": "New logo (optional)",
+									"type": "file"
+								},
+								{
+									"key": "Favicon",
+									"value": "",
+									"description": "New favicon (optional)",
+									"type": "file"
+								},
+								{
+									"key": "Banner",
+									"value": "",
+									"description": "New banner (optional)",
+									"type": "file"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/Shop/UpdateShop/{{shopId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Shop",
+								"UpdateShop",
+								"{{shopId}}"
+							]
+						},
+						"description": "Updates shop with new images. User must be the shop owner."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Shop",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/Shop/DeleteShop/{{shopId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Shop",
+								"DeleteShop",
+								"{{shopId}}"
+							]
+						},
+						"description": "Deletes a shop and all associated images. User must be the shop owner."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Static Files",
+			"item": [
+				{
+					"name": "Get Shop Image",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/shop-images/test.bmp",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"shop-images",
+								"test.bmp"
+							]
+						},
+						"description": "Retrieves a shop image from the static files directory (D:\\ShopImages). Replace 'example-logo.jpg' with the actual image filename."
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{accessToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:5140/Vorder",
+			"type": "string"
+		},
+		{
+			"key": "accessToken",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "refreshToken",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "userId",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

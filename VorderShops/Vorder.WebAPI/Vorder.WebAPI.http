@@ -1,0 +1,6 @@
+@Vorder.WebAPI_HostAddress = http://localhost:5140
+
+GET {{Vorder.WebAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
