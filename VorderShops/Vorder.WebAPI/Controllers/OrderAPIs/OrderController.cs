@@ -36,13 +36,23 @@ namespace Vorder.WebAPI.Controllers.OrderAPIs
             {
                 var product = await productRepo.GetByIdAsync(itemDto.ProductId);
                 if (product == null)
-                    continue;
+                    return ApiResponseStatus.BadRequest<ResponseOrderDto>(Errors.ValidationError($"Product {itemDto.ProductId} was not found", "PRODUCTNOTFOUND"));
+
+                if (itemDto.Quantity <= 0)
+                    return ApiResponseStatus.BadRequest<ResponseOrderDto>(Errors.ValidationError($"Quantity for product '{product.Name}' must be at least 1", "INVALIDQUANTITY"));
+
+                if (itemDto.Quantity > product.StockQuantity)
+                    return ApiResponseStatus.BadRequest<ResponseOrderDto>(Errors.ValidationError($"Insufficient stock for '{product.Name}': requested {itemDto.Quantity}, available {product.StockQuantity}", "INSUFFICIENTSTOCK"));
 
                 var orderItem = itemDto.Adapt<OrderItem>();
                 orderItem.UnitPriceSnapshot = product.Price; // Snapshot current price
 
                 order.OrderItems.Add(orderItem);
                 totalAmount += orderItem.UnitPriceSnapshot * orderItem.Quantity;
+
+                // Reserve stock for this order
+                product.StockQuantity -= orderItem.Quantity;
+                productRepo.Update(product);
             }
 
             order.TotalAmount = totalAmount;
@@ -56,9 +66,17 @@ namespace Vorder.WebAPI.Controllers.OrderAPIs
         [HttpGet("{id:guid}", Name = "GetOrderById")]
         public async Task<ActionResult<ApplicationResult<ResponseOrderDto>>> GetOrderById(Guid id)
         {
+            var userId = currentUser.UserId;
+            if (userId == null || userId == Guid.Empty)
+                return ApiResponseStatus.BadRequest<ResponseOrderDto>(Errors.ValidationError("Invalid User"));
+
             var order = await orderRepo.GetByIdAsync(id);
             if (order == null)
                 return ApiResponseStatus.NotFound<ResponseOrderDto>(Errors.NotFound("Order not found", "404"));
+
+            // Only the order owner may view it
+            if (order.UserId != userId.Value)
+                return ApiResponseStatus.Forbidden<ResponseOrderDto>(Errors.Forbidden(ErrorConstants.FORBIDDEN, ErrorConstants.FORBIDDENCODE));
 
             return ApiResponseStatus.Ok<ResponseOrderDto>(order.Adapt<ResponseOrderDto>());
         }

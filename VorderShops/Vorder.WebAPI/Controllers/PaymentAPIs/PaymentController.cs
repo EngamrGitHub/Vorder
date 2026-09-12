@@ -12,11 +12,25 @@ namespace Vorder.WebAPI.Controllers.PaymentAPIs
     [ApiController]
     [Route("api/[controller]/[Action]")]
     public class PaymentController(
-        IPaymentRepository paymentRepo) : ControllerBase
+        IPaymentRepository paymentRepo,
+        IOrderRepository orderRepo,
+        ICurrentUserService currentUser) : ControllerBase
     {
         [HttpPost(Name = "ProcessPayment")]
         public async Task<ActionResult<ApplicationResult<ResponsePaymentDto>>> ProcessPayment(CreatePaymentDto paymentDto)
         {
+            var userId = currentUser.UserId;
+            if (userId == null || userId == Guid.Empty)
+                return ApiResponseStatus.BadRequest<ResponsePaymentDto>(Errors.ValidationError("Invalid User"));
+
+            var order = await orderRepo.GetByIdAsync(paymentDto.OrderId);
+            if (order == null)
+                return ApiResponseStatus.NotFound<ResponsePaymentDto>(Errors.NotFound("Order not found", "404"));
+
+            // Only the order owner may pay for it
+            if (order.UserId != userId.Value)
+                return ApiResponseStatus.Forbidden<ResponsePaymentDto>(Errors.Forbidden(ErrorConstants.FORBIDDEN, ErrorConstants.FORBIDDENCODE));
+
             var payment = paymentDto.Adapt<Payment>();
             payment.Status = "Completed"; // Simulate successful payment
 
@@ -29,6 +43,18 @@ namespace Vorder.WebAPI.Controllers.PaymentAPIs
         [HttpGet("{orderId:guid}", Name = "GetOrderPayments")]
         public async Task<ActionResult<ApplicationResult<List<ResponsePaymentDto>>>> GetOrderPayments(Guid orderId)
         {
+            var userId = currentUser.UserId;
+            if (userId == null || userId == Guid.Empty)
+                return ApiResponseStatus.BadRequest<List<ResponsePaymentDto>>(Errors.ValidationError("Invalid User"));
+
+            var order = await orderRepo.GetByIdAsync(orderId);
+            if (order == null)
+                return ApiResponseStatus.NotFound<List<ResponsePaymentDto>>(Errors.NotFound("Order not found", "404"));
+
+            // Only the order owner may view its payments
+            if (order.UserId != userId.Value)
+                return ApiResponseStatus.Forbidden<List<ResponsePaymentDto>>(Errors.Forbidden(ErrorConstants.FORBIDDEN, ErrorConstants.FORBIDDENCODE));
+
             var payments = await paymentRepo.FindAllAsync(p => p.OrderId == orderId);
             return ApiResponseStatus.Ok<List<ResponsePaymentDto>>(payments.Adapt<List<ResponsePaymentDto>>());
         }
