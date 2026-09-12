@@ -31,6 +31,11 @@ namespace Vorder.WebAPI.Controllers.PaymentAPIs
             if (order.UserId != userId.Value)
                 return ApiResponseStatus.Forbidden<ResponsePaymentDto>(Errors.Forbidden(ErrorConstants.FORBIDDEN, ErrorConstants.FORBIDDENCODE));
 
+            // Prevent duplicate payments for the same order
+            var existingPayments = await paymentRepo.FindAllAsync(p => p.OrderId == paymentDto.OrderId);
+            if (existingPayments.Any())
+                return ApiResponseStatus.BadRequest<ResponsePaymentDto>(Errors.Exists("Order already paid", "PAYMENT409"));
+
             var payment = paymentDto.Adapt<Payment>();
             payment.Status = "Completed"; // Simulate successful payment
 
