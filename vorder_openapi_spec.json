@@ -1,0 +1,5479 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "Vorder API",
+    "description": "Vorder Web API",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "/Vorder"
+    }
+  ],
+  "paths": {
+    "/api/Address/AddAddress": {
+      "post": {
+        "tags": [
+          "Address"
+        ],
+        "operationId": "AddAddress",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateAddressDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateAddressDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateAddressDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseAddressDtoApplicationResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseAddressDtoApplicationResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseAddressDtoApplicationResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Address/GetUserAddresses": {
+      "get": {
+        "tags": [
+          "Address"
+        ],
+        "operationId": "GetUserAddresses",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseAddressDtoListApplicationResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseAddressDtoListApplicationResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseAddressDtoListApplicationResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Authentication/Register": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "operationId": "Register",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDtoApplicationResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDtoApplicationResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDtoApplicationResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Authentication/ConfirmEmail": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "operationId": "ConfirmEmail",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConfirmEmailModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConfirmEmailModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConfirmEmailModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringApplicationResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringApplicationResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringApplicationResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Authentication/GoogleLogin": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "operationId": "GoogleLogin",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/JwtTokenModelApplicationResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JwtTokenModelApplicationResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JwtTokenModelApplicationResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Authentication/Login": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "operationId": "Login",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/JwtTokenModelApplicationResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JwtTokenModelApplicationResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JwtTokenModelApplicationResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Authentication/RefreshToken": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "operationId": "RefreshToken",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefreshTokenModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefreshTokenModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefreshTokenModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/JwtTokenWithoutRefreshTokenModelApplicationResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JwtTokenWithoutRefreshTokenModelApplicationResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JwtTokenWithoutRefreshTokenModelApplicationResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Authentication/ForgotPassword": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "operationId": "ForgotPassword",
+        "parameters": [
+          {
+            "name": "Email",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringApplicationResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringApplicationResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringApplicationResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Authentication/ResetPassword": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "operationId": "ResetPassword",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResetPasswordModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResetPasswordModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResetPasswordModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringApplicationResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringApplicationResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringApplicationResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Authentication/ResendConfirmationEmail": {
+      "get": {
+        "tags": [
+          "Authentication"
+        ],
+        "operationId": "ResendConfirmationEmail",
+        "parameters": [
+          {
+            "name": "Email",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringApplicationResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringApplicationResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringApplicationResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Category/GetPaginatedCategories": {
+      "get": {
+        "tags": [
+          "Category"
+        ],
+        "operationId": "GetPaginatedCategories",
+        "parameters": [
+          {
+            "name": "PageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseCategoryDtoListApplicationResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseCategoryDtoListApplicationResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseCategoryDtoListApplicationResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Category/GetCategories": {
+      "get": {
+        "tags": [
+          "Category"
+        ],
+        "operationId": "GetCategories",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseCategoryDtoListApplicationResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseCategoryDtoListApplicationResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseCategoryDtoListApplicationResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Category/GetCategoryByID": {
+      "get": {
+        "tags": [
+          "Category"
+        ],
+        "operationId": "GetCategoryByID",
+        "parameters": [
+          {
+            "name": "CategoryID",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseCategoryDtoApplicationResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseCategoryDtoApplicationResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseCategoryDtoApplicationResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Category/CreateCategory": {
+      "post": {
+        "tags": [
+          "Category"
+        ],
+        "operationId": "CreateCategory",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Name": {
+                    "type": "string"
+                  },
+                  "NameAr": {
+                    "type": "string"
+                  },
+                  "Description": {
+                    "type": "string"
+                  },
+                  "DescriptionAr": {
+                    "type": "string"
+                  },
+                  "AppearsInHeader": {
+                    "type": "boolean"
+                  },
+                  "IconUrl": {
+                    "type": "string"
+                  },
+                  "ImageUrl": {
+                    "type": "string"
+                  },
+                  "Color": {
+                    "type": "string"
+                  },
+                  "IsFeatured": {
+                    "type": "boolean"
+                  },
+                  "MetaTitle": {
+                    "type": "string"
+                  },
+                  "MetaDescription": {
+                    "type": "string"
+                  },
+                  "MetaKeywords": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "Name": {
+                  "style": "form"
+                },
+                "NameAr": {
+                  "style": "form"
+                },
+                "Description": {
+                  "style": "form"
+                },
+                "DescriptionAr": {
+                  "style": "form"
+                },
+                "AppearsInHeader": {
+                  "style": "form"
+                },
+                "IconUrl": {
+                  "style": "form"
+                },
+                "ImageUrl": {
+                  "style": "form"
+                },
+                "Color": {
+                  "style": "form"
+                },
+                "IsFeatured": {
+                  "style": "form"
+                },
+                "MetaTitle": {
+                  "style": "form"
+                },
+                "MetaDescription": {
+                  "style": "form"
+                },
+                "MetaKeywords": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseCategoryDtoApplicationResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseCategoryDtoApplicationResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseCategoryDtoApplicationResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Category/UpdateCategory/{id}": {
+      "patch": {
+        "tags": [
+          "Category"
+        ],
+        "operationId": "UpdateCategory",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCategoryDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCategoryDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCategoryDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseCategoryDtoApplicationResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseCategoryDtoApplicationResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseCategoryDtoApplicationResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Category/DeleteCategory/{id}": {
+      "delete": {
+        "tags": [
+          "Category"
+        ],
+        "operationId": "DeleteCategory",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringApplicationResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringApplicationResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringApplicationResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Order/CreateOrder": {
+      "post": {
+        "tags": [
+          "Order"
+        ],
+        "operationId": "CreateOrder",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateOrderDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateOrderDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateOrderDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseOrderDtoApplicationResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseOrderDtoApplicationResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseOrderDtoApplicationResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Order/GetOrderById/{id}": {
+      "get": {
+        "tags": [
+          "Order"
+        ],
+        "operationId": "GetOrderById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseOrderDtoApplicationResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseOrderDtoApplicationResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseOrderDtoApplicationResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Payment/ProcessPayment": {
+      "post": {
+        "tags": [
+          "Payment"
+        ],
+        "operationId": "ProcessPayment",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePaymentDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePaymentDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePaymentDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponsePaymentDtoApplicationResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponsePaymentDtoApplicationResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponsePaymentDtoApplicationResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Payment/GetOrderPayments/{orderId}": {
+      "get": {
+        "tags": [
+          "Payment"
+        ],
+        "operationId": "GetOrderPayments",
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponsePaymentDtoListApplicationResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponsePaymentDtoListApplicationResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponsePaymentDtoListApplicationResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Product/GetPaginatedProducts": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "operationId": "GetPaginatedProducts",
+        "parameters": [
+          {
+            "name": "PageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseProductDtoListApplicationResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseProductDtoListApplicationResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseProductDtoListApplicationResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Product/GetProducts": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "operationId": "GetProducts",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseProductDtoListApplicationResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseProductDtoListApplicationResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseProductDtoListApplicationResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Product/GetProductByID": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "operationId": "GetProductByID",
+        "parameters": [
+          {
+            "name": "ProductID",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseProductDtoApplicationResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseProductDtoApplicationResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseProductDtoApplicationResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Product/CreateProduct": {
+      "post": {
+        "tags": [
+          "Product"
+        ],
+        "operationId": "CreateProduct",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Name": {
+                    "type": "string"
+                  },
+                  "Description": {
+                    "type": "string"
+                  },
+                  "Price": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "ApplyDiscount": {
+                    "type": "boolean"
+                  },
+                  "DiscountPercent": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "DiscountPrice": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "StockQuantity": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "SKU": {
+                    "type": "string"
+                  },
+                  "Brand": {
+                    "type": "string"
+                  },
+                  "Model": {
+                    "type": "string"
+                  },
+                  "ImageUrl": {
+                    "type": "string"
+                  },
+                  "Image": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "isPhysical": {
+                    "type": "boolean"
+                  },
+                  "ShopID": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "CategoryId": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "SubCategoryId": {
+                    "type": "string",
+                    "format": "uuid"
+                  }
+                }
+              },
+              "encoding": {
+                "Name": {
+                  "style": "form"
+                },
+                "Description": {
+                  "style": "form"
+                },
+                "Price": {
+                  "style": "form"
+                },
+                "ApplyDiscount": {
+                  "style": "form"
+                },
+                "DiscountPercent": {
+                  "style": "form"
+                },
+                "DiscountPrice": {
+                  "style": "form"
+                },
+                "StockQuantity": {
+                  "style": "form"
+                },
+                "SKU": {
+                  "style": "form"
+                },
+                "Brand": {
+                  "style": "form"
+                },
+                "Model": {
+                  "style": "form"
+                },
+                "ImageUrl": {
+                  "style": "form"
+                },
+                "Image": {
+                  "style": "form"
+                },
+                "isPhysical": {
+                  "style": "form"
+                },
+                "ShopID": {
+                  "style": "form"
+                },
+                "CategoryId": {
+                  "style": "form"
+                },
+                "SubCategoryId": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseProductDtoApplicationResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseProductDtoApplicationResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseProductDtoApplicationResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Product/UpdateProduct/{id}": {
+      "patch": {
+        "tags": [
+          "Product"
+        ],
+        "operationId": "UpdateProduct",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "Name",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Description",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Price",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "ApplyDiscount",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "DiscountPercent",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "DiscountPrice",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "StockQuantity",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "SKU",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Brand",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Model",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ImageUrl",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "isPhysical",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "ShopID",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "CategoryId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "SubCategoryId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Image": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "Image": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseProductDtoApplicationResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseProductDtoApplicationResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseProductDtoApplicationResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Product/DeleteProduct/{id}": {
+      "delete": {
+        "tags": [
+          "Product"
+        ],
+        "operationId": "DeleteProduct",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringApplicationResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringApplicationResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringApplicationResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Review/CreateReview": {
+      "post": {
+        "tags": [
+          "Review"
+        ],
+        "operationId": "CreateReview",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateReviewDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateReviewDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateReviewDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseReviewDtoApplicationResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseReviewDtoApplicationResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseReviewDtoApplicationResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Review/GetProductReviews/{productId}": {
+      "get": {
+        "tags": [
+          "Review"
+        ],
+        "operationId": "GetProductReviews",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseReviewDtoListApplicationResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseReviewDtoListApplicationResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseReviewDtoListApplicationResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Shop/GetPaginatedShops": {
+      "get": {
+        "tags": [
+          "Shop"
+        ],
+        "operationId": "GetPaginatedShops",
+        "parameters": [
+          {
+            "name": "PageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseShopDtoListApplicationResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseShopDtoListApplicationResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseShopDtoListApplicationResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Shop/GetShops": {
+      "get": {
+        "tags": [
+          "Shop"
+        ],
+        "operationId": "GetShops",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseShopDtoListApplicationResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseShopDtoListApplicationResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseShopDtoListApplicationResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Shop/GetShopByID": {
+      "get": {
+        "tags": [
+          "Shop"
+        ],
+        "operationId": "GetShopByID",
+        "parameters": [
+          {
+            "name": "shopID",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseShopDtoApplicationResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseShopDtoApplicationResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseShopDtoApplicationResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Shop/CreateShop": {
+      "post": {
+        "tags": [
+          "Shop"
+        ],
+        "operationId": "CreateShop",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "Name"
+                ],
+                "type": "object",
+                "properties": {
+                  "Theme": {
+                    "type": "string"
+                  },
+                  "Name": {
+                    "type": "string"
+                  },
+                  "NameAr": {
+                    "type": "string"
+                  },
+                  "Slug": {
+                    "type": "string"
+                  },
+                  "Description": {
+                    "type": "string"
+                  },
+                  "DescriptionAr": {
+                    "type": "string"
+                  },
+                  "WhatsAppNumber": {
+                    "type": "string"
+                  },
+                  "Website": {
+                    "type": "string"
+                  },
+                  "AddressLine1": {
+                    "type": "string"
+                  },
+                  "AddressLine2": {
+                    "type": "string"
+                  },
+                  "City": {
+                    "type": "string"
+                  },
+                  "State": {
+                    "type": "string"
+                  },
+                  "Country": {
+                    "type": "string"
+                  },
+                  "PostalCode": {
+                    "type": "string"
+                  },
+                  "Latitude": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Longitude": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Logo": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "LogoUrl": {
+                    "type": "string"
+                  },
+                  "Banner": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "BannerUrl": {
+                    "type": "string"
+                  },
+                  "Favicon": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "FaviconUrl": {
+                    "type": "string"
+                  },
+                  "PrimaryColor": {
+                    "type": "string"
+                  },
+                  "SecondaryColor": {
+                    "type": "string"
+                  },
+                  "CommercialRegistrationNumber": {
+                    "type": "string"
+                  },
+                  "TaxRegistrationNumber": {
+                    "type": "string"
+                  },
+                  "LicenseNumber": {
+                    "type": "string"
+                  },
+                  "EstablishedDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "FacebookUrl": {
+                    "type": "string"
+                  },
+                  "InstagramUrl": {
+                    "type": "string"
+                  },
+                  "TwitterUrl": {
+                    "type": "string"
+                  },
+                  "TikTokUrl": {
+                    "type": "string"
+                  },
+                  "LinkedInUrl": {
+                    "type": "string"
+                  },
+                  "YouTubeUrl": {
+                    "type": "string"
+                  },
+                  "MetaTitle": {
+                    "type": "string"
+                  },
+                  "MetaDescription": {
+                    "type": "string"
+                  },
+                  "MetaKeywords": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "Theme": {
+                  "style": "form"
+                },
+                "Name": {
+                  "style": "form"
+                },
+                "NameAr": {
+                  "style": "form"
+                },
+                "Slug": {
+                  "style": "form"
+                },
+                "Description": {
+                  "style": "form"
+                },
+                "DescriptionAr": {
+                  "style": "form"
+                },
+                "WhatsAppNumber": {
+                  "style": "form"
+                },
+                "Website": {
+                  "style": "form"
+                },
+                "AddressLine1": {
+                  "style": "form"
+                },
+                "AddressLine2": {
+                  "style": "form"
+                },
+                "City": {
+                  "style": "form"
+                },
+                "State": {
+                  "style": "form"
+                },
+                "Country": {
+                  "style": "form"
+                },
+                "PostalCode": {
+                  "style": "form"
+                },
+                "Latitude": {
+                  "style": "form"
+                },
+                "Longitude": {
+                  "style": "form"
+                },
+                "Logo": {
+                  "style": "form"
+                },
+                "LogoUrl": {
+                  "style": "form"
+                },
+                "Banner": {
+                  "style": "form"
+                },
+                "BannerUrl": {
+                  "style": "form"
+                },
+                "Favicon": {
+                  "style": "form"
+                },
+                "FaviconUrl": {
+                  "style": "form"
+                },
+                "PrimaryColor": {
+                  "style": "form"
+                },
+                "SecondaryColor": {
+                  "style": "form"
+                },
+                "CommercialRegistrationNumber": {
+                  "style": "form"
+                },
+                "TaxRegistrationNumber": {
+                  "style": "form"
+                },
+                "LicenseNumber": {
+                  "style": "form"
+                },
+                "EstablishedDate": {
+                  "style": "form"
+                },
+                "FacebookUrl": {
+                  "style": "form"
+                },
+                "InstagramUrl": {
+                  "style": "form"
+                },
+                "TwitterUrl": {
+                  "style": "form"
+                },
+                "TikTokUrl": {
+                  "style": "form"
+                },
+                "LinkedInUrl": {
+                  "style": "form"
+                },
+                "YouTubeUrl": {
+                  "style": "form"
+                },
+                "MetaTitle": {
+                  "style": "form"
+                },
+                "MetaDescription": {
+                  "style": "form"
+                },
+                "MetaKeywords": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseCreateShopDtoApplicationResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseCreateShopDtoApplicationResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseCreateShopDtoApplicationResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Shop/UpdateShop/{id}": {
+      "patch": {
+        "tags": [
+          "Shop"
+        ],
+        "operationId": "UpdateShop",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "Theme",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Name",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "NameAr",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Slug",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Description",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "DescriptionAr",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "WhatsAppNumber",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Website",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "AddressLine1",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "AddressLine2",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "City",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "State",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Country",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "PostalCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Latitude",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "Longitude",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "LogoUrl",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "BannerUrl",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "FaviconUrl",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "PrimaryColor",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "SecondaryColor",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "CommercialRegistrationNumber",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "TaxRegistrationNumber",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "LicenseNumber",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "EstablishedDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "FacebookUrl",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "InstagramUrl",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "TwitterUrl",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "TikTokUrl",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "LinkedInUrl",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "YouTubeUrl",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "MetaTitle",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "MetaDescription",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "MetaKeywords",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Logo": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "Banner": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "Favicon": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "Logo": {
+                  "style": "form"
+                },
+                "Banner": {
+                  "style": "form"
+                },
+                "Favicon": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseShopDtoApplicationResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseShopDtoApplicationResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseShopDtoApplicationResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Shop/DeleteShop/{id}": {
+      "delete": {
+        "tags": [
+          "Shop"
+        ],
+        "operationId": "DeleteShop",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringApplicationResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringApplicationResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringApplicationResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ShoppingCart/AddToCart": {
+      "post": {
+        "tags": [
+          "ShoppingCart"
+        ],
+        "operationId": "AddToCart",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddToCartDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddToCartDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddToCartDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringApplicationResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringApplicationResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringApplicationResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ShoppingCart/GetMyCart": {
+      "get": {
+        "tags": [
+          "ShoppingCart"
+        ],
+        "operationId": "GetMyCart",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseCartItemDtoListApplicationResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseCartItemDtoListApplicationResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseCartItemDtoListApplicationResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/SubCategory/GetPaginatedSubCategories": {
+      "get": {
+        "tags": [
+          "SubCategory"
+        ],
+        "operationId": "GetPaginatedSubCategories",
+        "parameters": [
+          {
+            "name": "PageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseSubCategoryDtoListApplicationResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseSubCategoryDtoListApplicationResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseSubCategoryDtoListApplicationResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/SubCategory/GetSubCategories": {
+      "get": {
+        "tags": [
+          "SubCategory"
+        ],
+        "operationId": "GetSubCategories",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseSubCategoryDtoListApplicationResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseSubCategoryDtoListApplicationResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseSubCategoryDtoListApplicationResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/SubCategory/GetSubCategoryByID": {
+      "get": {
+        "tags": [
+          "SubCategory"
+        ],
+        "operationId": "GetSubCategoryByID",
+        "parameters": [
+          {
+            "name": "SubCategoryID",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseSubCategoryDtoApplicationResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseSubCategoryDtoApplicationResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseSubCategoryDtoApplicationResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/SubCategory/GetSubCategoryByCategoryID": {
+      "get": {
+        "tags": [
+          "SubCategory"
+        ],
+        "operationId": "GetSubCategoryByCategoryID",
+        "parameters": [
+          {
+            "name": "CategoryID",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseSubCategoryDtoListApplicationResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseSubCategoryDtoListApplicationResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseSubCategoryDtoListApplicationResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/SubCategory/CreateSubCategory": {
+      "post": {
+        "tags": [
+          "SubCategory"
+        ],
+        "operationId": "CreateSubCategory",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSubCategoryDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSubCategoryDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSubCategoryDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseSubCategoryDtoApplicationResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseSubCategoryDtoApplicationResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseSubCategoryDtoApplicationResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/SubCategory/UpdateSubCategory/{id}": {
+      "patch": {
+        "tags": [
+          "SubCategory"
+        ],
+        "operationId": "UpdateSubCategory",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateSubCategoryDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateSubCategoryDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateSubCategoryDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseSubCategoryDtoApplicationResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseSubCategoryDtoApplicationResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseSubCategoryDtoApplicationResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/SubCategory/DeleteSubCategory/{id}": {
+      "delete": {
+        "tags": [
+          "SubCategory"
+        ],
+        "operationId": "DeleteSubCategory",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringApplicationResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringApplicationResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringApplicationResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/register": {
+      "post": {
+        "tags": [
+          "Vorder.WebAPI"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/login": {
+      "post": {
+        "tags": [
+          "Vorder.WebAPI"
+        ],
+        "parameters": [
+          {
+            "name": "useCookies",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "useSessionCookies",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccessTokenResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/refresh": {
+      "post": {
+        "tags": [
+          "Vorder.WebAPI"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefreshRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccessTokenResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/confirmEmail": {
+      "get": {
+        "tags": [
+          "Vorder.WebAPI"
+        ],
+        "operationId": "MapIdentityApi-/confirmEmail",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "code",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "changedEmail",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/resendConfirmationEmail": {
+      "post": {
+        "tags": [
+          "Vorder.WebAPI"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResendConfirmationEmailRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/forgotPassword": {
+      "post": {
+        "tags": [
+          "Vorder.WebAPI"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ForgotPasswordRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/resetPassword": {
+      "post": {
+        "tags": [
+          "Vorder.WebAPI"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResetPasswordRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/manage/2fa": {
+      "post": {
+        "tags": [
+          "Vorder.WebAPI"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TwoFactorRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TwoFactorResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/manage/info": {
+      "get": {
+        "tags": [
+          "Vorder.WebAPI"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InfoResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Vorder.WebAPI"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InfoRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InfoResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AccessTokenResponse": {
+        "required": [
+          "accessToken",
+          "expiresIn",
+          "refreshToken"
+        ],
+        "type": "object",
+        "properties": {
+          "tokenType": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "accessToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "expiresIn": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "refreshToken": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AddToCartDto": {
+        "type": "object",
+        "properties": {
+          "productId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApplicationUser": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "normalizedUserName": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "normalizedEmail": {
+            "type": "string",
+            "nullable": true
+          },
+          "emailConfirmed": {
+            "type": "boolean"
+          },
+          "passwordHash": {
+            "type": "string",
+            "nullable": true
+          },
+          "securityStamp": {
+            "type": "string",
+            "nullable": true
+          },
+          "concurrencyStamp": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumberConfirmed": {
+            "type": "boolean"
+          },
+          "twoFactorEnabled": {
+            "type": "boolean"
+          },
+          "lockoutEnd": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "lockoutEnabled": {
+            "type": "boolean"
+          },
+          "accessFailedCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fullName": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "membershipId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "membership": {
+            "$ref": "#/components/schemas/Membership"
+          },
+          "shopID": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "shop": {
+            "$ref": "#/components/schemas/Shop"
+          },
+          "refreshToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "refreshTokenExpiryTime": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Category": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "isActive": {
+            "type": "boolean"
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "updatedDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "creatorId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "lastModifierId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "creator": {
+            "$ref": "#/components/schemas/ApplicationUser"
+          },
+          "lastModifier": {
+            "$ref": "#/components/schemas/ApplicationUser"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "nameAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "descriptionAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "appearsInHeader": {
+            "type": "boolean"
+          },
+          "iconUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "imageUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "color": {
+            "type": "string",
+            "nullable": true
+          },
+          "isFeatured": {
+            "type": "boolean"
+          },
+          "metaTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "metaDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "metaKeywords": {
+            "type": "string",
+            "nullable": true
+          },
+          "shopID": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "shop": {
+            "$ref": "#/components/schemas/Shop"
+          },
+          "subCategories": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SubCategory"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ConfirmEmailModel": {
+        "type": "object",
+        "properties": {
+          "userID": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "confirmationToken": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateAddressDto": {
+        "required": [
+          "addressLine1",
+          "addressType",
+          "city",
+          "country"
+        ],
+        "type": "object",
+        "properties": {
+          "addressType": {
+            "type": "string",
+            "nullable": true
+          },
+          "addressLine1": {
+            "type": "string",
+            "nullable": true
+          },
+          "addressLine2": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "province": {
+            "type": "string",
+            "nullable": true
+          },
+          "country": {
+            "type": "string",
+            "nullable": true
+          },
+          "postalCode": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateOrderDto": {
+        "required": [
+          "shippingAddressLine",
+          "shippingCity",
+          "shippingCountry"
+        ],
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateOrderItemDto"
+            },
+            "nullable": true
+          },
+          "shippingAddressLine": {
+            "type": "string",
+            "nullable": true
+          },
+          "shippingCity": {
+            "type": "string",
+            "nullable": true
+          },
+          "shippingProvince": {
+            "type": "string",
+            "nullable": true
+          },
+          "shippingCountry": {
+            "type": "string",
+            "nullable": true
+          },
+          "shippingPostalCode": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateOrderItemDto": {
+        "type": "object",
+        "properties": {
+          "productId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreatePaymentDto": {
+        "type": "object",
+        "properties": {
+          "orderId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "amount": {
+            "type": "number",
+            "format": "double"
+          },
+          "paymentMethod": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateReviewDto": {
+        "type": "object",
+        "properties": {
+          "productId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "customerReview": {
+            "type": "string",
+            "nullable": true
+          },
+          "rating": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateSubCategoryDto": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "categoryId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "nameAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "descriptionAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "iconUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "imageUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "color": {
+            "type": "string",
+            "nullable": true
+          },
+          "isFeatured": {
+            "type": "boolean"
+          },
+          "metaTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "metaDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "metaKeywords": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ForgotPasswordRequest": {
+        "required": [
+          "email"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "HttpValidationProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          },
+          "errors": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": {}
+      },
+      "InfoRequest": {
+        "type": "object",
+        "properties": {
+          "newEmail": {
+            "type": "string",
+            "nullable": true
+          },
+          "newPassword": {
+            "type": "string",
+            "nullable": true
+          },
+          "oldPassword": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "InfoResponse": {
+        "required": [
+          "email",
+          "isEmailConfirmed"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "isEmailConfirmed": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "JwtTokenModel": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "nullable": true
+          },
+          "tokenExpiryHours": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tokenExpiration": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "refreshToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "refreshTokenExpiryHours": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "refreshTokenExpiration": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "tokenType": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "JwtTokenModelApplicationResult": {
+        "type": "object",
+        "properties": {
+          "errorMsg": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "errorCode": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "isSuccess": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "result": {
+            "$ref": "#/components/schemas/JwtTokenModel"
+          }
+        },
+        "additionalProperties": false
+      },
+      "JwtTokenWithoutRefreshTokenModel": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "nullable": true
+          },
+          "expiryHours": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "expiration": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "JwtTokenWithoutRefreshTokenModelApplicationResult": {
+        "type": "object",
+        "properties": {
+          "errorMsg": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "errorCode": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "isSuccess": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "result": {
+            "$ref": "#/components/schemas/JwtTokenWithoutRefreshTokenModel"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginRequest": {
+        "required": [
+          "email",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "twoFactorCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "twoFactorRecoveryCode": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Membership": {
+        "required": [
+          "membershipType"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "isActive": {
+            "type": "boolean"
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "updatedDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "creatorId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "lastModifierId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "creator": {
+            "$ref": "#/components/schemas/ApplicationUser"
+          },
+          "lastModifier": {
+            "$ref": "#/components/schemas/ApplicationUser"
+          },
+          "membershipType": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RefreshRequest": {
+        "required": [
+          "refreshToken"
+        ],
+        "type": "object",
+        "properties": {
+          "refreshToken": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RefreshTokenModel": {
+        "type": "object",
+        "properties": {
+          "userID": {
+            "type": "string",
+            "nullable": true
+          },
+          "refreshToken": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RegisterDto": {
+        "type": "object",
+        "properties": {
+          "fullName": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "confirmPassword": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RegisterRequest": {
+        "required": [
+          "email",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResendConfirmationEmailRequest": {
+        "required": [
+          "email"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResetPasswordModel": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "resetToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "newPassword": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResetPasswordRequest": {
+        "required": [
+          "email",
+          "newPassword",
+          "resetCode"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "resetCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "newPassword": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResponseAddressDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "addressType": {
+            "type": "string",
+            "nullable": true
+          },
+          "addressLine1": {
+            "type": "string",
+            "nullable": true
+          },
+          "addressLine2": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "province": {
+            "type": "string",
+            "nullable": true
+          },
+          "country": {
+            "type": "string",
+            "nullable": true
+          },
+          "postalCode": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResponseAddressDtoApplicationResult": {
+        "type": "object",
+        "properties": {
+          "errorMsg": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "errorCode": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "isSuccess": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "result": {
+            "$ref": "#/components/schemas/ResponseAddressDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResponseAddressDtoListApplicationResult": {
+        "type": "object",
+        "properties": {
+          "errorMsg": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "errorCode": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "isSuccess": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "result": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResponseAddressDto"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResponseCartItemDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "productId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "productName": {
+            "type": "string",
+            "nullable": true
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "unitPrice": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResponseCartItemDtoListApplicationResult": {
+        "type": "object",
+        "properties": {
+          "errorMsg": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "errorCode": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "isSuccess": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "result": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResponseCartItemDto"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResponseCategoryDto": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "isActive": {
+            "type": "boolean"
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "updatedDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "creatorId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "lastModifierId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "nameAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "descriptionAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "appearsInHeader": {
+            "type": "boolean"
+          },
+          "iconUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "imageUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "color": {
+            "type": "string",
+            "nullable": true
+          },
+          "isFeatured": {
+            "type": "boolean"
+          },
+          "metaTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "metaDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "metaKeywords": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResponseCategoryDtoApplicationResult": {
+        "type": "object",
+        "properties": {
+          "errorMsg": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "errorCode": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "isSuccess": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "result": {
+            "$ref": "#/components/schemas/ResponseCategoryDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResponseCategoryDtoListApplicationResult": {
+        "type": "object",
+        "properties": {
+          "errorMsg": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "errorCode": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "isSuccess": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "result": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResponseCategoryDto"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResponseCreateShopDto": {
+        "type": "object",
+        "properties": {
+          "shop": {
+            "$ref": "#/components/schemas/ResponseShopDto"
+          },
+          "token": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResponseCreateShopDtoApplicationResult": {
+        "type": "object",
+        "properties": {
+          "errorMsg": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "errorCode": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "isSuccess": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "result": {
+            "$ref": "#/components/schemas/ResponseCreateShopDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResponseOrderDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "orderDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "totalAmount": {
+            "type": "number",
+            "format": "double"
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResponseOrderItemDto"
+            },
+            "nullable": true
+          },
+          "shippingAddressLine": {
+            "type": "string",
+            "nullable": true
+          },
+          "shippingCity": {
+            "type": "string",
+            "nullable": true
+          },
+          "shippingCountry": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResponseOrderDtoApplicationResult": {
+        "type": "object",
+        "properties": {
+          "errorMsg": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "errorCode": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "isSuccess": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "result": {
+            "$ref": "#/components/schemas/ResponseOrderDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResponseOrderItemDto": {
+        "type": "object",
+        "properties": {
+          "productId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "productName": {
+            "type": "string",
+            "nullable": true
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "unitPrice": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResponsePaymentDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "orderId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "amount": {
+            "type": "number",
+            "format": "double"
+          },
+          "paymentDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "paymentMethod": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResponsePaymentDtoApplicationResult": {
+        "type": "object",
+        "properties": {
+          "errorMsg": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "errorCode": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "isSuccess": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "result": {
+            "$ref": "#/components/schemas/ResponsePaymentDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResponsePaymentDtoListApplicationResult": {
+        "type": "object",
+        "properties": {
+          "errorMsg": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "errorCode": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "isSuccess": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "result": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResponsePaymentDto"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResponseProductDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "isActive": {
+            "type": "boolean"
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "updatedDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "creatorId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "lastModifierId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "price": {
+            "type": "number",
+            "format": "double"
+          },
+          "applyDiscount": {
+            "type": "boolean"
+          },
+          "discountPercent": {
+            "type": "number",
+            "format": "double"
+          },
+          "discountPrice": {
+            "type": "number",
+            "format": "double"
+          },
+          "stockQuantity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sku": {
+            "type": "string",
+            "nullable": true
+          },
+          "brand": {
+            "type": "string",
+            "nullable": true
+          },
+          "model": {
+            "type": "string",
+            "nullable": true
+          },
+          "imageUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "isPhysical": {
+            "type": "boolean"
+          },
+          "shopID": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "categoryId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "subCategoryId": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResponseProductDtoApplicationResult": {
+        "type": "object",
+        "properties": {
+          "errorMsg": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "errorCode": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "isSuccess": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "result": {
+            "$ref": "#/components/schemas/ResponseProductDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResponseProductDtoListApplicationResult": {
+        "type": "object",
+        "properties": {
+          "errorMsg": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "errorCode": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "isSuccess": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "result": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResponseProductDto"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResponseReviewDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "productId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "customerReview": {
+            "type": "string",
+            "nullable": true
+          },
+          "rating": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "userFullName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResponseReviewDtoApplicationResult": {
+        "type": "object",
+        "properties": {
+          "errorMsg": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "errorCode": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "isSuccess": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "result": {
+            "$ref": "#/components/schemas/ResponseReviewDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResponseReviewDtoListApplicationResult": {
+        "type": "object",
+        "properties": {
+          "errorMsg": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "errorCode": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "isSuccess": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "result": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResponseReviewDto"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResponseShopDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "isActive": {
+            "type": "boolean"
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "updatedDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "creatorId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "lastModifierId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "ownerId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "theme": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "nameAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "slug": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "descriptionAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "whatsAppNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "website": {
+            "type": "string",
+            "nullable": true
+          },
+          "addressLine1": {
+            "type": "string",
+            "nullable": true
+          },
+          "addressLine2": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "state": {
+            "type": "string",
+            "nullable": true
+          },
+          "country": {
+            "type": "string",
+            "nullable": true
+          },
+          "postalCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "latitude": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "longitude": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "logoUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "bannerUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "faviconUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "primaryColor": {
+            "type": "string",
+            "nullable": true
+          },
+          "secondaryColor": {
+            "type": "string",
+            "nullable": true
+          },
+          "commercialRegistrationNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "taxRegistrationNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "licenseNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "establishedDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "facebookUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "instagramUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "twitterUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "tikTokUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "linkedInUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "youTubeUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "metaTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "metaDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "metaKeywords": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResponseShopDtoApplicationResult": {
+        "type": "object",
+        "properties": {
+          "errorMsg": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "errorCode": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "isSuccess": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "result": {
+            "$ref": "#/components/schemas/ResponseShopDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResponseShopDtoListApplicationResult": {
+        "type": "object",
+        "properties": {
+          "errorMsg": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "errorCode": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "isSuccess": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "result": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResponseShopDto"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResponseSubCategoryDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "isActive": {
+            "type": "boolean"
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "updatedDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "creatorId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "lastModifierId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "creator": {
+            "$ref": "#/components/schemas/ApplicationUser"
+          },
+          "lastModifier": {
+            "$ref": "#/components/schemas/ApplicationUser"
+          },
+          "categoryId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "nameAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "descriptionAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "iconUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "imageUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "color": {
+            "type": "string",
+            "nullable": true
+          },
+          "isFeatured": {
+            "type": "boolean"
+          },
+          "metaTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "metaDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "metaKeywords": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResponseSubCategoryDtoApplicationResult": {
+        "type": "object",
+        "properties": {
+          "errorMsg": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "errorCode": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "isSuccess": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "result": {
+            "$ref": "#/components/schemas/ResponseSubCategoryDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResponseSubCategoryDtoListApplicationResult": {
+        "type": "object",
+        "properties": {
+          "errorMsg": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "errorCode": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "isSuccess": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "result": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResponseSubCategoryDto"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Shop": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "isActive": {
+            "type": "boolean"
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "updatedDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "creatorId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "lastModifierId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "creator": {
+            "$ref": "#/components/schemas/ApplicationUser"
+          },
+          "lastModifier": {
+            "$ref": "#/components/schemas/ApplicationUser"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "nameAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "slug": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "descriptionAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "whatsAppNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "website": {
+            "type": "string",
+            "nullable": true
+          },
+          "addressLine1": {
+            "type": "string",
+            "nullable": true
+          },
+          "addressLine2": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "state": {
+            "type": "string",
+            "nullable": true
+          },
+          "country": {
+            "type": "string",
+            "nullable": true
+          },
+          "postalCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "latitude": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "longitude": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "logoUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "bannerUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "faviconUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "primaryColor": {
+            "type": "string",
+            "nullable": true
+          },
+          "secondaryColor": {
+            "type": "string",
+            "nullable": true
+          },
+          "commercialRegistrationNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "taxRegistrationNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "licenseNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "establishedDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "facebookUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "instagramUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "twitterUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "tikTokUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "linkedInUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "youTubeUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "metaTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "metaDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "metaKeywords": {
+            "type": "string",
+            "nullable": true
+          },
+          "theme": {
+            "type": "string",
+            "nullable": true
+          },
+          "ownerId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "owner": {
+            "$ref": "#/components/schemas/ApplicationUser"
+          },
+          "categories": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Category"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "StringApplicationResult": {
+        "type": "object",
+        "properties": {
+          "errorMsg": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "errorCode": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "isSuccess": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "result": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SubCategory": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "isActive": {
+            "type": "boolean"
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "updatedDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "creatorId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "lastModifierId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "creator": {
+            "$ref": "#/components/schemas/ApplicationUser"
+          },
+          "lastModifier": {
+            "$ref": "#/components/schemas/ApplicationUser"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "nameAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "descriptionAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "iconUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "imageUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "color": {
+            "type": "string",
+            "nullable": true
+          },
+          "isFeatured": {
+            "type": "boolean"
+          },
+          "metaTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "metaDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "metaKeywords": {
+            "type": "string",
+            "nullable": true
+          },
+          "categoryId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "category": {
+            "$ref": "#/components/schemas/Category"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TwoFactorRequest": {
+        "type": "object",
+        "properties": {
+          "enable": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "twoFactorCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "resetSharedKey": {
+            "type": "boolean"
+          },
+          "resetRecoveryCodes": {
+            "type": "boolean"
+          },
+          "forgetMachine": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TwoFactorResponse": {
+        "required": [
+          "isMachineRemembered",
+          "isTwoFactorEnabled",
+          "recoveryCodesLeft",
+          "sharedKey"
+        ],
+        "type": "object",
+        "properties": {
+          "sharedKey": {
+            "type": "string",
+            "nullable": true
+          },
+          "recoveryCodesLeft": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "recoveryCodes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "isTwoFactorEnabled": {
+            "type": "boolean"
+          },
+          "isMachineRemembered": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateCategoryDto": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "nameAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "descriptionAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "appearsInHeader": {
+            "type": "boolean"
+          },
+          "iconUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "imageUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "color": {
+            "type": "string",
+            "nullable": true
+          },
+          "isFeatured": {
+            "type": "boolean"
+          },
+          "metaTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "metaDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "metaKeywords": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateSubCategoryDto": {
+        "type": "object",
+        "properties": {
+          "categoryId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "nameAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "descriptionAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "iconUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "imageUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "color": {
+            "type": "string",
+            "nullable": true
+          },
+          "isFeatured": {
+            "type": "boolean"
+          },
+          "metaTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "metaDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "metaKeywords": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "fullName": {
+            "type": "string",
+            "nullable": true
+          },
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserDtoApplicationResult": {
+        "type": "object",
+        "properties": {
+          "errorMsg": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "errorCode": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "isSuccess": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "result": {
+            "$ref": "#/components/schemas/UserDto"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "description": "JWT Authorization header using the Bearer scheme.",
+        "scheme": "bearer"
+      }
+    }
+  }
+}
