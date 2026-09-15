@@ -2,7 +2,9 @@
 {
     public static class PictureConstants
     {
-        public const string DefaultShopPath = @"D:\\ShopImages";
+        public static string DefaultShopPath =>
+            Path.Combine(AppContext.BaseDirectory, "ShopImages");
+
         public const string DefaultRequestPath = "/shop-images";
     }
 }
